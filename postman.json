@@ -1,0 +1,198 @@
+{
+  "info": {
+    "_postman_id": "463a206a-716e-4516-b742-d4924cf817ad",
+    "name": "Galactic Diaries API",
+    "description": "Backend API for Galactic Diaries application to manage users, posts, comments, and authentication.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get all users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/api/users",
+              "host": ["{{URL}}"],
+              "path": ["api", "users"]
+            },
+            "description": "Fetch all users from database."
+          },
+          "response": []
+        },
+        {
+          "name": "Get single user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/api/users/1",
+              "host": ["{{URL}}"],
+              "path": ["api", "users", "1"]
+            },
+            "description": "Gets a single user by ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Create new user",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "JSON Type",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Alice\",\r\n    \"email\": \"alice@gmail.com\",\r\n    \"password\": \"BadPassword123\",\r\n    \"bio\": \"I love blogs and such.\",\r\n    \"isAdmin\": false\r\n}"
+            },
+            "url": {
+              "raw": "{{URL}}/api/users/",
+              "host": ["{{URL}}"],
+              "path": ["api", "users", ""]
+            },
+            "description": "Creates a new user and adds to database."
+          },
+          "response": []
+        },
+        {
+          "name": "Update single user",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "JSON Type",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Alice Smith\"\r\n}"
+            },
+            "url": {
+              "raw": "{{URL}}/api/users/1",
+              "host": ["{{URL}}"],
+              "path": ["api", "users", "1"]
+            },
+            "description": "Updates a single user by ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/api/users/1",
+              "host": ["{{URL}}"],
+              "path": ["api", "users", "1"]
+            },
+            "description": "Removes a signle user by ID."
+          },
+          "response": []
+        }
+      ],
+      "description": "CRUD for users.",
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Posts",
+      "item": [
+        {
+          "name": "Get all posts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/api/posts",
+              "host": ["{{URL}}"],
+              "path": ["api", "posts"]
+            },
+            "description": "Finds and returns all posts"
+          },
+          "response": []
+        },
+        {
+          "name": "Get single post",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/api/posts/1",
+              "host": ["{{URL}}"],
+              "path": ["api", "posts", "1"]
+            },
+            "description": "Returns a single post by ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Create new post",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "JSON Type",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"How to make a website\",\r\n    \"content\": \"1. Learn to code\",\r\n    \"status\": \"published\",\r\n    \"author\": \"5f669eed0ae03b08f5233129\"\r\n}"
+            },
+            "url": {
+              "raw": "{{URL}}/api/posts",
+              "host": ["{{URL}}"],
+              "path": ["api", "posts"]
+            },
+            "description": "Creates a new post and adds to DB."
+          },
+          "response": []
+        },
+        {
+          "name": "Update single post",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/api/posts/1",
+              "host": ["{{URL}}"],
+              "path": ["api", "posts", "1"]
+            },
+            "description": "Modifies an existing post"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete post",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/api/posts/1",
+              "host": ["{{URL}}"],
+              "path": ["api", "posts", "1"]
+            },
+            "description": "Removes a post by ID from DB."
+          },
+          "response": []
+        }
+      ],
+      "description": "CRUD functionality for Posts and Comments.",
+      "protocolProfileBehavior": {}
+    }
+  ],
+  "protocolProfileBehavior": {}
+}
