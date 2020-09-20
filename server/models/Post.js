@@ -32,37 +32,34 @@ const PostSchema = new Schema({
         default: Date.now,
     },
     // Recursive, thread based comments.
-    comments: {
-        type: [CommentSchema],
-        default: undefined,
-    },
+    // comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
 });
 
-const CommentSchema = new Schema({
-    content: {
-        type: String,
-        required: true,
-    },
-    // Short string for URL.
-    slug: String,
-    author: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'User',
-        required: true,
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-    },
-    updatedAt: {
-        type: Date,
-        default: Date.now,
-    },
-    // Comments can have more comments recursively.
-    comments: {
-        type: [CommentSchema],
-        default: undefined,
-    },
-});
+// const CommentSchema = new Schema({
+//     content: {
+//         type: String,
+//         required: true,
+//     },
+//     // Short string for URL.
+//     slug: String,
+//     author: {
+//         type: mongoose.Schema.ObjectId,
+//         ref: 'User',
+//         required: true,
+//     },
+//     createdAt: {
+//         type: Date,
+//         default: Date.now,
+//     },
+//     updatedAt: {
+//         type: Date,
+//         default: Date.now,
+//     },
+//     // Comments can have more comments recursively.
+//     comments: {
+//         type: [CommentSchema],
+//         default: undefined,
+//     },
+// });
 
 module.exports = mongoose.model('Post', PostSchema);

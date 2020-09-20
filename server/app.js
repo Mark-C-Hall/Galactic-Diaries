@@ -14,6 +14,7 @@ connectDB();
 
 // Route Files
 const users = require('./routes/users');
+const posts = require('./routes/posts');
 
 const port = process.env.PORT;
 
@@ -30,6 +31,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // Mount Routers
 app.use('/api/users', users);
+app.use('/api/posts', posts);
 
 // Launch Server.
 const server = app.listen(port, () => {
