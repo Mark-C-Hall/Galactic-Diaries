@@ -31,6 +31,9 @@ const PostSchema = new Schema({
         type: Date,
         default: Date.now,
     },
+
+    // TODO Add comment functionality
+
     // Recursive, thread based comments.
     // comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
 });

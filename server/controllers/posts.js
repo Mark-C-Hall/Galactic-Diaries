@@ -48,7 +48,6 @@ exports.createPost = async (req, res, next) => {
             data: post,
         });
     } catch (error) {
-        console.log(error);
         res.status(400).json({ success: false });
     }
 };
@@ -56,6 +55,7 @@ exports.createPost = async (req, res, next) => {
 // @desc        Update a post
 // @route       Put /api/posts/:id
 exports.updatePost = async (req, res, next) => {
+    // TODO modify updateAt field
     try {
         const post = await Post.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
