@@ -2,6 +2,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 
 // Points to configuration values
@@ -32,6 +33,9 @@ if (process.env.NODE_ENV === 'development') {
 // Mount Routers
 app.use('/api/users', users);
 app.use('/api/posts', posts);
+
+// Error handler Middleware
+app.use(errorHandler);
 
 // Launch Server.
 const server = app.listen(port, () => {
