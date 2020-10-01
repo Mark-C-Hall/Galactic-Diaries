@@ -5,7 +5,7 @@ const ErrorResponse = require('../utils/ErrorResponse');
 // @desc        Get all users
 // @route       GET /api/users
 exports.getUsers = asyncHandler(async (req, res, next) => {
-    const users = await User.find();
+    const users = await User.find().populate('posts');
 
     res.status(200).json({
         success: true,
@@ -60,11 +60,13 @@ exports.updateUser = asyncHandler(async (req, res, next) => {
 // @desc        Delete a user
 // @route       GET /api/users:/id
 exports.deleteUser = asyncHandler(async (req, res, next) => {
-    const user = await User.findByIdAndDelete(req.params.id);
+    const user = await User.findById(req.params.id);
 
     if (!user) {
         res.status(400).json({ success: false });
     }
+
+    user.remove();
 
     res.status(200).json({ success: true });
 });
