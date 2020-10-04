@@ -6,13 +6,8 @@ const ErrorResponse = require('../utils/ErrorResponse');
 // @desc        Get all users
 // @route       GET /api/users
 exports.getUsers = asyncHandler(async (req, res, next) => {
-    const users = await User.find().populate('posts');
-
-    res.status(200).json({
-        success: true,
-        count: users.length,
-        data: users,
-    });
+    console.log('this happened');
+    res.status(200).json(res.advancedResults);
 });
 
 // @desc        Get a single user

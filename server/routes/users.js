@@ -1,4 +1,6 @@
 const express = require('express');
+const User = require('../models/User');
+const advancedResults = require('../middleware/advancedResults');
 
 const {
     getUser,
@@ -17,7 +19,10 @@ const router = express.Router();
 // Reroute into other resource
 router.use('/:userId/posts', postRouter);
 
-router.route('/').get(getUsers).post(createUser);
+router
+    .route('/')
+    .get(advancedResults(User, 'posts'), getUsers)
+    .post(createUser);
 router.route('/:id').get(getUser).put(updateUser).delete(deleteUser);
 router.route('/:id/photo').put(userPhotoUpload);
 
