@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "463a206a-716e-4516-b742-d4924cf817ad",
+    "_postman_id": "ea9b62d0-b245-431e-a43a-8f4374863174",
     "name": "Galactic Diaries API",
     "description": "Backend API for Galactic Diaries application to manage users, posts, comments, and authentication.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -29,9 +29,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{URL}}/api/users/1",
+              "raw": "{{URL}}/api/users/5f66a487d62d580a48236924",
               "host": ["{{URL}}"],
-              "path": ["api", "users", "1"]
+              "path": ["api", "users", "5f66a487d62d580a48236924"]
             },
             "description": "Gets a single user by ID."
           },
@@ -51,7 +51,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"name\": \"Alice\",\r\n    \"email\": \"alice@gmail.com\",\r\n    \"password\": \"BadPassword123\",\r\n    \"bio\": \"I love blogs and such.\",\r\n    \"isAdmin\": false\r\n}"
+              "raw": "    {\r\n        \"_id\": \"5f66a487d62d580a48236924\",\r\n        \"name\": \"Emily\",\r\n        \"email\": \"em@fbi.gov\",\r\n        \"password\": \"weakpassword\",\r\n        \"bio\": \"The gov is watching you\",\r\n        \"isAdmin\": true\r\n    }"
             },
             "url": {
               "raw": "{{URL}}/api/users/",
@@ -76,12 +76,12 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"name\": \"Alice Smith\"\r\n}"
+              "raw": "{\r\n    \"email\": \"emily@fbi.gov\"\r\n}"
             },
             "url": {
-              "raw": "{{URL}}/api/users/1",
+              "raw": "{{URL}}/api/users/5f66a487d62d580a48236924",
               "host": ["{{URL}}"],
-              "path": ["api", "users", "1"]
+              "path": ["api", "users", "5f66a487d62d580a48236924"]
             },
             "description": "Updates a single user by ID."
           },
@@ -93,11 +93,42 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "{{URL}}/api/users/1",
+              "raw": "{{URL}}/api/users/5f66a487d62d580a48236924",
               "host": ["{{URL}}"],
-              "path": ["api", "users", "1"]
+              "path": ["api", "users", "5f66a487d62d580a48236924"]
             },
             "description": "Removes a signle user by ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Upload user photo",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "JSON Type",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "/C:/Users/Mark/OneDrive/Pictures/Galactic Diaries Photos/wolf.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{URL}}/api/users/5f66a487d62d580a48236924/photo",
+              "host": ["{{URL}}"],
+              "path": ["api", "users", "5f66a487d62d580a48236924", "photo"]
+            },
+            "description": "Route to upload a user photo"
           },
           "response": []
         }
@@ -128,9 +159,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{URL}}/api/posts/1",
+              "raw": "{{URL}}/api/posts/5f7a1a8c4638200954dbced0",
               "host": ["{{URL}}"],
-              "path": ["api", "posts", "1"]
+              "path": ["api", "posts", "5f7a1a8c4638200954dbced0"]
             },
             "description": "Returns a single post by ID."
           },
@@ -150,7 +181,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"title\": \"How to make a website\",\r\n    \"content\": \"1. Learn to code\",\r\n    \"status\": \"published\",\r\n    \"author\": \"5f669eed0ae03b08f5233129\"\r\n}"
+              "raw": "{\r\n    \"title\": \"Cybersecurity Lessons from an FBI agent\",\r\n    \"content\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sodales, ante id elementum bibendum, odio nulla vehicula metus, eu rhoncus ipsum leo at urna. Aliquam imperdiet sapien vitae nunc facilisis congue. Fusce et elit ac purus ullamcorper porttitor. Donec vel dapibus mi, nec imperdiet dolor. Suspendisse tincidunt augue cursus purus tincidunt, vitae scelerisque tellus rutrum. Morbi a imperdiet metus. Integer vel vulputate velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis ornare lacus. Fusce bibendum mattis arcu. Nullam rhoncus augue vulputate scelerisque pretium.\",\r\n    \"status\": \"published\",\r\n    \"author\": \"5f66a487d62d580a48236924\",\r\n    \"_id\": \"5f7a1a8c4638200954dbced0\"\r\n}"
             },
             "url": {
               "raw": "{{URL}}/api/posts",
@@ -165,11 +196,21 @@
           "name": "Update single post",
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\": \"draft\"\r\n}"
+            },
             "url": {
-              "raw": "{{URL}}/api/posts/1",
+              "raw": "{{URL}}/api/posts/5f7a1a8c4638200954dbced0",
               "host": ["{{URL}}"],
-              "path": ["api", "posts", "1"]
+              "path": ["api", "posts", "5f7a1a8c4638200954dbced0"]
             },
             "description": "Modifies an existing post"
           },
@@ -181,9 +222,9 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "{{URL}}/api/posts/1",
+              "raw": "{{URL}}/api/posts/5f7a1a8c4638200954dbced0",
               "host": ["{{URL}}"],
-              "path": ["api", "posts", "1"]
+              "path": ["api", "posts", "5f7a1a8c4638200954dbced0"]
             },
             "description": "Removes a post by ID from DB."
           },

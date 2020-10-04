@@ -25,7 +25,9 @@ exports.getPost = asyncHandler(async (req, res, next) => {
     });
 
     if (!post) {
-        return res.status(400).json({ success: false });
+        return next(
+            new ErrorResponse(`Post not found at id ${req.params.id}`, 404)
+        );
     }
 
     res.status(200).json({
@@ -54,7 +56,9 @@ exports.updatePost = asyncHandler(async (req, res, next) => {
     });
 
     if (!post) {
-        return res.status(400).json({ success: false });
+        return next(
+            new ErrorResponse(`Post not found at id ${req.params.id}`, 404)
+        );
     }
 
     res.status(200).json({ success: true, data: post });
@@ -66,7 +70,9 @@ exports.deletePost = asyncHandler(async (req, res, next) => {
     const post = await Post.findByIdAndDelete(req.params.id);
 
     if (!post) {
-        res.status(400).json({ success: false });
+        return next(
+            new ErrorResponse(`Post not found at id ${req.params.id}`, 404)
+        );
     }
 
     res.status(200).json({ success: true });

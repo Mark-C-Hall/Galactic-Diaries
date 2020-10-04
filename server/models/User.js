@@ -37,12 +37,14 @@ const UserSchema = new Schema(
         },
         photo: {
             type: String,
-            default: 'no-photo.jpg',
+            default: 'no-photo.png',
         },
     },
+    // DB manipulation to allow for virtual populations.
     {
         toJSON: { virtuals: true },
         toObject: { virtuals: true },
+        id: false,
     }
 );
 
