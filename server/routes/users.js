@@ -6,6 +6,7 @@ const {
     createUser,
     updateUser,
     deleteUser,
+    userPhotoUpload,
 } = require('../controllers/users');
 
 // include other resources
@@ -18,5 +19,6 @@ router.use('/:userId/posts', postRouter);
 
 router.route('/').get(getUsers).post(createUser);
 router.route('/:id').get(getUser).put(updateUser).delete(deleteUser);
+router.route('/:id/photo').put(userPhotoUpload);
 
 module.exports = router;
