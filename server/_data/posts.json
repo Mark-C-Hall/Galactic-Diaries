@@ -4,35 +4,27 @@
         "title": "How to make a website",
         "content": "Adipisicing ad do et commodo occaecat Lorem. Adipisicing in sint dolore do proident nulla occaecat qui velit do deserunt. Nisi exercitation ullamco labore cillum cillum sint do duis id.",
         "status": "published",
-        "author": "5f669eed0ae03b08f5233122",
-        "createdAt": "2020-09-20T00:23:37.923Z",
-        "updatedAt": "2020-09-20T00:23:37.923Z"
+        "author": "5f669eed0ae03b08f5233129"
     },
     {
         "_id": "5f66a7abdbaa780c1a1037f6",
         "title": "Making Sourdough Bread",
         "content": "Magna aliqua adipisicing exercitation anim fugiat Lorem culpa. Consectetur ut veniam duis do mollit veniam sint ea commodo veniam ut irure ad anim. Ex in ex eiusmod cupidatat et elit. Nisi laborum ex eiusmod laboris anim Lorem tempor et officia. Id nostrud qui commodo nulla proident esse irure voluptate mollit nulla non. Cupidatat nisi nostrud voluptate eu ullamco amet. Voluptate occaecat aute reprehenderit et qui adipisicing adipisicing Lorem cillum non sunt duis labore labore.",
         "status": "draft",
-        "author": "5f66a2e30590810a0ffe35c5",
-        "createdAt": "2020-09-20T00:51:55.273Z",
-        "updatedAt": "2020-09-20T00:51:55.273Z"
+        "author": "5f66a2e30590810a0ffe35c5"
     },
     {
         "_id": "5f66a7d8dbaa780c1a1037f7",
         "title": "The government is bad",
         "content": "Anim eu esse est occaecat magna reprehenderit reprehenderit eu do anim occaecat reprehenderit magna. Id nostrud nulla do enim magna exercitation deserunt consequat id non exercitation irure. Incididunt veniam consectetur excepteur ea qui exercitation magna irure in nisi. Ad ad sit in tempor minim ex tempor ex excepteur dolore cupidatat ex occaecat. Laboris nulla consequat minim enim elit proident do eiusmod ad sint consequat nostrud minim. Officia eu excepteur labore irure nostrud quis.",
         "status": "published",
-        "author": "5f66a35ad83f130a1c2d3343",
-        "createdAt": "2020-09-20T00:52:40.936Z",
-        "updatedAt": "2020-09-20T00:52:40.937Z"
+        "author": "5f66a35ad83f130a1c2d3343"
     },
     {
         "_id": "5f66a7fddbaa780c1a1037f8",
         "title": "How to hack a website",
         "content": "Ipsum velit culpa consectetur voluptate dolor fugiat laboris labore consectetur in nisi. Irure ex cillum commodo id laboris consectetur occaecat sit sint aliqua ea. Eiusmod officia mollit anim ut sint nostrud consectetur. Voluptate Lorem magna officia enim velit sunt non.",
         "status": "private",
-        "author": "5f66a3e55e19410a32ca50cc",
-        "createdAt": "2020-09-20T00:53:17.972Z",
-        "updatedAt": "2020-09-20T00:53:17.972Z"
+        "author": "5f66a3e55e19410a32ca50cc"
     }
 ]

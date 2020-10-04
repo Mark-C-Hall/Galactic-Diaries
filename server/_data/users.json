@@ -6,8 +6,7 @@
         "password": "BadPassword123",
         "bio": "I love blogs and such.",
         "isAdmin": false,
-        "photo": "no-photo.jpg",
-        "createdAt": "2020-09-20T00:14:37.309Z"
+        "photo": "photo_5f669eed0ae03b08f5233129.jpg"
     },
     {
         "_id": "5f66a2e30590810a0ffe35c5",
@@ -16,8 +15,7 @@
         "password": "CodingRules123",
         "bio": "My name is not Robert",
         "isAdmin": false,
-        "photo": "no-photo.jpg",
-        "createdAt": "2020-09-20T00:31:31.038Z"
+        "photo": "photo_5f66a2e30590810a0ffe35c5.jpg"
     },
     {
         "_id": "5f66a35ad83f130a1c2d3343",
@@ -26,8 +24,7 @@
         "password": "ValenciaRox789",
         "bio": "I've been in Valencia for 10 years.",
         "isAdmin": true,
-        "photo": "no-photo.jpg",
-        "createdAt": "2020-09-20T00:33:30.398Z"
+        "photo": "photo_5f66a35ad83f130a1c2d3343.jpg"
     },
     {
         "_id": "5f66a3e55e19410a32ca50cc",
@@ -36,17 +33,6 @@
         "password": "PwnN00bs",
         "bio": "PC Master Race",
         "isAdmin": false,
-        "photo": "no-photo.jpg",
-        "createdAt": "2020-09-20T00:35:49.807Z"
-    },
-    {
-        "_id": "5f66a487d62d580a48236924",
-        "name": "Emily",
-        "email": "em@fbi.gov",
-        "password": "weakpassword",
-        "bio": "The gov is watching you",
-        "isAdmin": true,
-        "photo": "no-photo.jpg",
-        "createdAt": "2020-09-20T00:38:31.599Z"
+        "photo": "photo_5f66a3e55e19410a32ca50cc.jpg"
     }
 ]

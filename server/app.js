@@ -1,7 +1,10 @@
 // Modules
 const express = require('express');
+const path = require('path');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+const fileupload = require('express-fileupload');
+const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 
 // Points to configuration values
@@ -29,9 +32,18 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
 
+// File upload
+app.use(fileupload());
+
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Mount Routers
 app.use('/api/users', users);
 app.use('/api/posts', posts);
+
+// Error handler Middleware
+app.use(errorHandler);
 
 // Launch Server.
 const server = app.listen(port, () => {
