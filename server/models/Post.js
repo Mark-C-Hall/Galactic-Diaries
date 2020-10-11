@@ -1,3 +1,11 @@
+/*
+ * Mongoose model to hold Posts and comments.
+ *
+ * Galactic Diaries
+ * Valencia College
+ * Fall 2020
+ */
+
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 const Schema = mongoose.Schema;

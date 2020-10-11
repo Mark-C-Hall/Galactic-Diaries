@@ -12,6 +12,16 @@
         {
           "name": "Get all users",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "GET",
             "header": [],
             "url": {
@@ -26,45 +36,74 @@
         {
           "name": "Get single user",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{URL}}/api/users/5f66a487d62d580a48236924",
+              "raw": "{{URL}}/api/users/5f834fae4cc63607798b5d5f",
               "host": ["{{URL}}"],
-              "path": ["api", "users", "5f66a487d62d580a48236924"]
+              "path": ["api", "users", "5f834fae4cc63607798b5d5f"]
             },
             "description": "Gets a single user by ID."
           },
           "response": []
         },
         {
-          "name": "Create new user",
+          "name": "Create new User",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json",
-                "description": "JSON Type",
                 "type": "text"
               }
             ],
             "body": {
               "mode": "raw",
-              "raw": "    {\r\n        \"_id\": \"5f66a487d62d580a48236924\",\r\n        \"name\": \"Emily\",\r\n        \"email\": \"em@fbi.gov\",\r\n        \"password\": \"weakpassword\",\r\n        \"bio\": \"The gov is watching you\",\r\n        \"isAdmin\": true\r\n    }"
+              "raw": "{\r\n    \"name\": \"Frank\",\r\n    \"email\": \"frank@gmail.com\",\r\n    \"password\": \"thisismypassword\",\r\n    \"role\": \"user\",\r\n    \"_id\": \"5f834fae4cc63607798b5d5f\"\r\n}"
             },
             "url": {
-              "raw": "{{URL}}/api/users/",
+              "raw": "{{URL}}/api/users",
               "host": ["{{URL}}"],
-              "path": ["api", "users", ""]
+              "path": ["api", "users"]
             },
-            "description": "Creates a new user and adds to database."
+            "description": "Create a new user as an admin."
           },
           "response": []
         },
         {
           "name": "Update single user",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "PUT",
             "header": [
               {
@@ -76,34 +115,30 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"email\": \"emily@fbi.gov\"\r\n}"
+              "raw": "{\r\n    \"name\": \"Frank Smith\"\r\n}"
             },
             "url": {
-              "raw": "{{URL}}/api/users/5f66a487d62d580a48236924",
+              "raw": "{{URL}}/api/users/5f834fae4cc63607798b5d5f",
               "host": ["{{URL}}"],
-              "path": ["api", "users", "5f66a487d62d580a48236924"]
+              "path": ["api", "users", "5f834fae4cc63607798b5d5f"]
             },
             "description": "Updates a single user by ID."
           },
           "response": []
         },
         {
-          "name": "Delete User",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "{{URL}}/api/users/5f66a487d62d580a48236924",
-              "host": ["{{URL}}"],
-              "path": ["api", "users", "5f66a487d62d580a48236924"]
-            },
-            "description": "Removes a signle user by ID."
-          },
-          "response": []
-        },
-        {
           "name": "Upload user photo",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "PUT",
             "header": [
               {
@@ -124,11 +159,35 @@
               ]
             },
             "url": {
-              "raw": "{{URL}}/api/users/5f66a487d62d580a48236924/photo",
+              "raw": "{{URL}}/api/users/5f834fae4cc63607798b5d5f/photo",
               "host": ["{{URL}}"],
-              "path": ["api", "users", "5f66a487d62d580a48236924", "photo"]
+              "path": ["api", "users", "5f834fae4cc63607798b5d5f", "photo"]
             },
             "description": "Route to upload a user photo"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/api/users/5f834fae4cc63607798b5d5f",
+              "host": ["{{URL}}"],
+              "path": ["api", "users", "5f834fae4cc63607798b5d5f"]
+            },
+            "description": "Removes a signle user by ID."
           },
           "response": []
         }
@@ -168,8 +227,32 @@
           "response": []
         },
         {
+          "name": "Get all posts by user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/api/users/5f7d2da43d7498026085a459/posts",
+              "host": ["{{URL}}"],
+              "path": ["api", "users", "5f7d2da43d7498026085a459", "posts"]
+            },
+            "description": "Route for getting all posts by user Id."
+          },
+          "response": []
+        },
+        {
           "name": "Create new post",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "POST",
             "header": [
               {
@@ -181,7 +264,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"title\": \"Cybersecurity Lessons from an FBI agent\",\r\n    \"content\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sodales, ante id elementum bibendum, odio nulla vehicula metus, eu rhoncus ipsum leo at urna. Aliquam imperdiet sapien vitae nunc facilisis congue. Fusce et elit ac purus ullamcorper porttitor. Donec vel dapibus mi, nec imperdiet dolor. Suspendisse tincidunt augue cursus purus tincidunt, vitae scelerisque tellus rutrum. Morbi a imperdiet metus. Integer vel vulputate velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis ornare lacus. Fusce bibendum mattis arcu. Nullam rhoncus augue vulputate scelerisque pretium.\",\r\n    \"status\": \"published\",\r\n    \"author\": \"5f66a487d62d580a48236924\",\r\n    \"_id\": \"5f7a1a8c4638200954dbced0\"\r\n}"
+              "raw": "{\r\n    \"title\": \"Cybersecurity Lessons from an FBI agent\",\r\n    \"content\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sodales, ante id elementum bibendum, odio nulla vehicula metus, eu rhoncus ipsum leo at urna. Aliquam imperdiet sapien vitae nunc facilisis congue. Fusce et elit ac purus ullamcorper porttitor. Donec vel dapibus mi, nec imperdiet dolor. Suspendisse tincidunt augue cursus purus tincidunt, vitae scelerisque tellus rutrum. Morbi a imperdiet metus. Integer vel vulputate velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis ornare lacus. Fusce bibendum mattis arcu. Nullam rhoncus augue vulputate scelerisque pretium.\",\r\n    \"status\": \"published\",\r\n    \"_id\": \"5f7a1a8c4638200954dbced0\"\r\n}"
             },
             "url": {
               "raw": "{{URL}}/api/posts",
@@ -195,6 +278,16 @@
         {
           "name": "Update single post",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "PUT",
             "header": [
               {
@@ -219,12 +312,29 @@
         {
           "name": "Delete post",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "DELETE",
             "header": [],
             "url": {
               "raw": "{{URL}}/api/posts/5f7a1a8c4638200954dbced0",
               "host": ["{{URL}}"],
-              "path": ["api", "posts", "5f7a1a8c4638200954dbced0"]
+              "path": ["api", "posts", "5f7a1a8c4638200954dbced0"],
+              "query": [
+                {
+                  "key": "",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
             },
             "description": "Removes a post by ID from DB."
           },
@@ -232,6 +342,331 @@
         }
       ],
       "description": "CRUD functionality for Posts and Comments.",
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Get logged in user",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/api/auth/me",
+              "host": ["{{URL}}"],
+              "path": ["api", "auth", "me"]
+            },
+            "description": "Route which returns the user's information based on their stored token."
+          },
+          "response": []
+        },
+        {
+          "name": "Register User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c4919125-4733-45b0-b85c-a5b920d78fbc",
+                "exec": [
+                  "pm.environment.set(\"TOKEN\", pm.response.json().token)"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"name\": \"Emily\",\r\n        \"email\": \"emily@fbi.gov\",\r\n        \"password\": \"weakpassword\",\r\n        \"role\": \"admin\",\r\n        \"_id\": \"5f7d2da43d7498026085a459\"\r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/api/auth/register",
+              "host": ["{{URL}}"],
+              "path": ["api", "auth", "register"]
+            },
+            "description": "Add user to database w/ encrypted password."
+          },
+          "response": []
+        },
+        {
+          "name": "Login User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "6bc5413d-f0fe-4872-9822-3ed46818d62f",
+                "exec": [
+                  "pm.environment.set(\"TOKEN\", pm.response.json().token)"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"email\": \"emily@fbi.gov\",\r\n        \"password\": \"weakpassword\"\r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/api/auth/login",
+              "host": ["{{URL}}"],
+              "path": ["api", "auth", "login"]
+            },
+            "description": "Route for loggin in user using email and password."
+          },
+          "response": []
+        },
+        {
+          "name": "Forgot Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "ty",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"emily@fbi.gov\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/api/auth/forgotpassword",
+              "host": ["{{URL}}"],
+              "path": ["api", "auth", "forgotpassword"]
+            },
+            "description": "Generate Password Token and send email."
+          },
+          "response": []
+        },
+        {
+          "name": "Reset Password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7deae993-9b03-4f66-9d02-e02ee423114a",
+                "exec": [
+                  "pm.environment.set(\"TOKEN\", pm.response.json().token)"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"password\": \"strongpassword\"\r\n}"
+            },
+            "url": {
+              "raw": "{{URL}}/api/auth/resetPassword/064e4069c44b2985ffa7dd8a018e24398bf63e45",
+              "host": ["{{URL}}"],
+              "path": [
+                "api",
+                "auth",
+                "resetPassword",
+                "064e4069c44b2985ffa7dd8a018e24398bf63e45"
+              ]
+            },
+            "description": "Resets passwording using prior reset Password token."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Logged In User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"Emily@gmail.com\"\r\n}"
+            },
+            "url": {
+              "raw": "{{URL}}/api/auth/me",
+              "host": ["{{URL}}"],
+              "path": ["api", "auth", "me"]
+            },
+            "description": "Update name, email, or bio using the logged in user's token."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Password",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"currentPassword\": \"weakpassword\",\r\n    \"newPassword\": \"strongpassword\"\r\n}"
+            },
+            "url": {
+              "raw": "{{URL}}/api/auth/updatePassword",
+              "host": ["{{URL}}"],
+              "path": ["api", "auth", "updatePassword"]
+            },
+            "description": "Update's logged in user's password by sending current password and new password."
+          },
+          "response": []
+        },
+        {
+          "name": "Upload logged in user photo",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "JSON Type",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "/C:/Users/Mark/OneDrive/Pictures/Galactic Diaries Photos/wolf.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{URL}}/api/auth/uploadphoto",
+              "host": ["{{URL}}"],
+              "path": ["api", "auth", "uploadphoto"]
+            },
+            "description": "Uploads a photo using the logged in user's token."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Logged In User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/api/auth/me",
+              "host": ["{{URL}}"],
+              "path": ["api", "auth", "me"]
+            },
+            "description": "Removes the logged in user from the database permanently. "
+          },
+          "response": []
+        }
+      ],
+      "description": "Routers for user authentication including registering, login, reset password, etc.",
       "protocolProfileBehavior": {}
     }
   ],

@@ -1,3 +1,14 @@
+/*
+ * Helper functions for seeding and deleting fields db with data from ./_data/
+ *
+ * Usage: 'node ./seeder.js -i' to insert fields
+ *        'node ./seeder.js -d' to delete all fields
+ *
+ * Galactic Diaries
+ * Valencia College
+ * Fall 2020
+ */
+
 const fs = require('fs');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
