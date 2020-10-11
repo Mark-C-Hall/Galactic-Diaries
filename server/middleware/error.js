@@ -1,10 +1,20 @@
+/*
+ * Middleware method for handling errors and calling the error response object.
+ *
+ * Galactic Diaries
+ * Valencia College
+ * Fall 2020
+ */
+
 const ErrorResponse = require('../utils/ErrorResponse');
 
 const errorHandler = (err, req, res, next) => {
+    // Select errors
     let error = { ...err };
     error.message = err.message;
 
     // Log error to console
+    // TODO delete this when out of dev.
     console.log(err);
 
     // Mongoose bad Object id
@@ -26,6 +36,7 @@ const errorHandler = (err, req, res, next) => {
         error = new ErrorResponse(message, 400);
     }
 
+    // All other errors
     res.status(error.statusCode || 500).json({
         success: false,
         error: error.message || 'Server Error',

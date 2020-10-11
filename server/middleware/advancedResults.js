@@ -1,3 +1,15 @@
+/*
+ * Middleware method for applying advanced queries. Params are:
+ * - Select
+ * - Sort
+ * - Page
+ * - Limit
+ *
+ * Galactic Diaries
+ * Valencia College
+ * Fall 2020
+ */
+
 const advancedResults = (model, populate) => async (req, res, next) => {
     let query;
 
@@ -36,6 +48,7 @@ const advancedResults = (model, populate) => async (req, res, next) => {
 
     query.skip(startIndex).limit(limit);
 
+    // Populate results with relationships
     if (populate) {
         console.log(populate);
         query = query.populate(populate);
@@ -61,6 +74,7 @@ const advancedResults = (model, populate) => async (req, res, next) => {
         };
     }
 
+    // Create respone object
     res.advancedResults = {
         sucess: true,
         count: results.length,

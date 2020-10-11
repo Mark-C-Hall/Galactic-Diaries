@@ -5,7 +5,7 @@
         "email": "alice@gmail.com",
         "password": "BadPassword123",
         "bio": "I love blogs and such.",
-        "isAdmin": false,
+        "role": "user",
         "photo": "photo_5f669eed0ae03b08f5233129.jpg"
     },
     {
@@ -14,7 +14,7 @@
         "email": "bob@yahoo.com",
         "password": "CodingRules123",
         "bio": "My name is not Robert",
-        "isAdmin": false,
+        "role": "user",
         "photo": "photo_5f66a2e30590810a0ffe35c5.jpg"
     },
     {
@@ -23,7 +23,7 @@
         "email": "chuck@mail.valenciacollege.edu",
         "password": "ValenciaRox789",
         "bio": "I've been in Valencia for 10 years.",
-        "isAdmin": true,
+        "role": "admin",
         "photo": "photo_5f66a35ad83f130a1c2d3343.jpg"
     },
     {
@@ -32,7 +32,7 @@
         "email": "David@mail.com",
         "password": "PwnN00bs",
         "bio": "PC Master Race",
-        "isAdmin": false,
+        "role": "user",
         "photo": "photo_5f66a3e55e19410a32ca50cc.jpg"
     }
 ]

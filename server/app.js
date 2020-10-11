@@ -1,9 +1,18 @@
+/*
+ * Galactic Diaries API root file.
+ *
+ * Galactic Diaries
+ * Valencia College
+ * Fall 2020
+ */
+
 // Modules
 const express = require('express');
 const path = require('path');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const fileupload = require('express-fileupload');
+const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 
@@ -18,6 +27,7 @@ connectDB();
 // Route Files
 const users = require('./routes/users');
 const posts = require('./routes/posts');
+const auth = require('./routes/auth');
 
 const port = process.env.PORT;
 
@@ -26,6 +36,8 @@ const app = express();
 
 // Body Parser
 app.use(express.json());
+
+app.use(cookieParser());
 
 // Dev logging middleware
 if (process.env.NODE_ENV === 'development') {
@@ -41,6 +53,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Mount Routers
 app.use('/api/users', users);
 app.use('/api/posts', posts);
+app.use('/api/auth', auth);
 
 // Error handler Middleware
 app.use(errorHandler);
