@@ -10,6 +10,28 @@ const mongoose = require('mongoose');
 const slugify = require('slugify');
 const Schema = mongoose.Schema;
 
+// Define comment scheme first
+const CommentSchema = new Schema(
+    {
+        content: {
+            type: String,
+            required: true,
+        },
+        author: {
+            type: mongoose.Schema.ObjectId,
+            ref: 'User',
+            required: true,
+        },
+    },
+    { timestamps: true }
+);
+
+// Comments can have more comments recursively.
+CommentSchema.add({
+    comments: [CommentSchema],
+});
+
+// Lay out Post scheme w/ comments
 const PostSchema = new Schema(
     {
         title: {
@@ -33,42 +55,12 @@ const PostSchema = new Schema(
             ref: 'User',
             required: true,
         },
-
-        // TODO Add comment functionality
-
-        // Recursive, thread based comments.
-        // comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
+        comments: [CommentSchema],
     },
     { timestamps: true }
 );
 
-// const CommentSchema = new Schema({
-//     content: {
-//         type: String,
-//         required: true,
-//     },
-//     // Short string for URL.
-//     slug: String,
-//     author: {
-//         type: mongoose.Schema.ObjectId,
-//         ref: 'User',
-//         required: true,
-//     },
-//     createdAt: {
-//         type: Date,
-//         default: Date.now,
-//     },
-//     updatedAt: {
-//         type: Date,
-//         default: Date.now,
-//     },
-//     // Comments can have more comments recursively.
-//     comments: {
-//         type: [CommentSchema],
-//         default: undefined,
-//     },
-// });
-
+// Method for generating Post slug for frontend URL's
 PostSchema.pre('save', function (next) {
     this.slug = slugify(this.title, { lower: true });
     next();
