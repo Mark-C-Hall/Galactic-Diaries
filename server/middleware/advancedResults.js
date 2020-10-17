@@ -50,7 +50,6 @@ const advancedResults = (model, populate) => async (req, res, next) => {
 
     // Populate results with relationships
     if (populate) {
-        console.log(populate);
         query = query.populate(populate);
     }
 
