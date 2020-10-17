@@ -14,8 +14,9 @@ const errorHandler = (err, req, res, next) => {
     error.message = err.message;
 
     // Log error to console
-    // TODO delete this when out of dev.
-    console.log(err);
+    if (process.env.NODE_ENV === 'development') {
+        console.log(err);
+    }
 
     // Mongoose bad Object id
     if (err.name === 'CastError') {
