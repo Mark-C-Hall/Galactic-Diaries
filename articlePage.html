@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Article</title>
+    <link rel="stylesheet" href="feedStyles.css">
+    <script src="modernizr-1.5.js"></script>
+    <script src="jquery-3.5.1.js"></script>
+    <script src="autoresize.jquery.js"></script>
+    
+</head>
+<body id="mainPage">
+    <div class="imgcontainer"> 
+        <img src= "GD-logo.png" alt="Avatar" class="avatar">  
+    
+    <header id="title">
+        <h1>Main Article</h1>
+    </header>
+</div> 
+
+
+    <nav id="menu">
+        <ul>
+            <li><a href="homePage.html">Home</a></li>
+            <li><a href="draftPost.html">Create Post</a></li>
+            <li><a href="feedPage.html">What's Trending</a></li>
+            <li><a href="generalSettings.html">Settings</a></li>
+        </ul>
+    </nav>
+
+    <div id="windowAdjust">
+
+    <section id="mainSection">
+        <article>
+            <header>
+                <hgroup>
+                    <h3>Sample Article</h3>
+                </hgroup>
+            </header>
+            
+            <p>Text goes here.</p>
+        </article>
+
+        <article>
+            <header>
+                <hgroup>
+                    <h5>Comments</h5><br>
+                </hgroup>
+            </header>            
+
+        <!-- Comment Section with a Comment Post-->
+        <form>
+            <label for="draftComm">Create Comment</label><br>
+            <textarea placeholder="Join the Conversation" id="draftPost" name="draftPost" rows="3" cols="90"></textarea><br>
+            <input type="submit" value="Post">
+        </form>
+
+        <script>
+        $('textarea').autoResize();
+        </script>
+        </article>
+    </section>
+
+    
+    </div>
+
+    <footer id="copyright">
+        Copyright: Lonestar Group
+    </footer>
+</body>
+</html>

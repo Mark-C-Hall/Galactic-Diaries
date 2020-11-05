@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Create Post</title>
+    <link rel="stylesheet" href="feedStyles.css">
+    <script src="modernizr-1.5.js"></script>
+    <script src="jquery-3.5.1.js"></script>
+    <script src="autoresize.jquery.js"></script>
+</head>
+<body>
+    <header id="title">
+        <h1>What's on your mind?</h1>
+    </header>
+
+    <nav id="menu">
+        <ul>
+            <li><a href="homePage.html">Home</a></li>
+            <li><a href="draftPost.html">Create Post</a></li>
+            <li><a href="feedPage.html">What's Trending</a></li>
+            <li><a href="generalSettings.html">Settings</a></li>
+        </ul>
+    </nav>
+
+    <div id="windowAdjust">
+        <section id="mainSection">
+            <article>
+        <form>
+           <!-- <label for="post">What's on your mind?</label><br>-->
+            <textarea placeholder="What's on your mind?" id="draft" name="draft" rows="4" cols="50"></textarea><br>
+            <input type="submit" value="Post"> <br>
+            <input type="submit" value="Save Draft">
+        </form>
+    </article>
+    </section>
+</div>
+</body>
+
+<script>
+    $('textarea').autoResize();
+</script>
+</html>
