@@ -39,6 +39,20 @@
                 <hgroup>
                     <h3>Sample Article</h3>
                 </hgroup>
+                
+                <!--Add a date here, which is the used as a placeholder. Therefore, I just used the current date. -->
+                <hgroup id="datePosted"></hgroup>
+
+                <script>
+                
+                var today = new Date();
+                var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                
+                var date = months[today.getMonth()] + ' ' + today.getDay() + ', ' + today.getFullYear();
+                
+                document.getElementById('datePosted').innerHTML = date;
+
+                </script>
             </header>
             
             <p>Text goes here.</p>
