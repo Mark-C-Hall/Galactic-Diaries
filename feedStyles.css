@@ -43,9 +43,14 @@ textarea {
     color: #c9c9c9;
     text-align: center;
 }
-
+/*
 #mainPage{
     border: 1px solid black;
+}
+*/
+#datePosted {
+    color: #ababab;
+    margin: 5px 0px;
 }
 
 #menu{
