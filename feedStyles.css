@@ -23,12 +23,21 @@ body{
     flex-direction: column;
 }
 
+/*I adjusted the container so that the logo goes directly into the menu*/
+
 .imgcontainer { 
-    text-align: left; 
-    margin: 5px 0 5px 0; 
+    text-align: center; 
+    margin-right: 5px; 
+    padding-bottom: 5px;
     position: relative; 
-    width: 25%;
+    /* margin-left: 7px; 
+    width: 10px;
+    height: 10px;*/
 } 
+
+.homepage {
+    text-align: center;
+}
 
 textarea {
     width: 100%; 
@@ -40,26 +49,33 @@ textarea {
 }
 
 #title {
-    color: #c9c9c9;
+    color: black;
+    margin-top: 15px; 
     text-align: center;
 }
-/*
+/* 
 #mainPage{
     border: 1px solid black;
 }
 */
+
 #datePosted {
     color: #ababab;
     margin: 5px 0px;
 }
 
+.exit {
+    text-align: right;
+}
+
 #menu{
-    background: #caacf2;
+    background: white;
     border-radius: 4px;
     border: 1px solid black;
     padding: 5px;
     margin: 20px 50px 20px 50px;
     width: 688px;
+    height: 275px;
     text-align: center;
 }
 
@@ -82,11 +98,8 @@ textarea {
     -webkit-box-flex: 1;
 }
 
-#news {
-    width: 220px;
-    margin: 20px;
-    padding: 20px;
-   /* float: right; */
+li.currentPage {
+    background: lightblue;
 }
 
 article {
@@ -106,5 +119,6 @@ article {
 }
 
 #copyright {
+    color: lightblue;
     text-align: center;
 }
