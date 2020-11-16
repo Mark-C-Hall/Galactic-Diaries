@@ -72,7 +72,7 @@
    {
        var textBox = document.getElementById("textbox");
        var text = textbox.innerHTML;
-       var boldFont = document.selection();
+       var boldFont = selectionText();
        var offset1 = text.indexOf(boldFont);
        var offset2 = offset1 + boldfont.length;
        var str1 = text.substring(0, offset1);
