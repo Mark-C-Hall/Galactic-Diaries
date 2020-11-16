@@ -42,7 +42,12 @@
             <article>
         <form>
            <!-- <label for="post">What's on your mind?</label><br>-->
-            <textarea placeholder="What's on your mind?" id="draft" name="draft" rows="4" cols="50"></textarea><br>
+            <div id="textbox">
+                 <button onclick="boldSelected()">Bold</button>
+                 <textarea placeholder="What's on your mind?" id="draft" name="draft" rows="4" cols="50"></textarea><br>
+                 Add a photo<br>
+                </div>
+            <input type="file" name="photoToUpload" id="photoToUpload"><br><br>
             <input type="submit" value="Post"> <br>
             <input type="submit" value="Save Draft">
         </form>
@@ -51,6 +56,39 @@
 </div>
 </body>
 
+    <script type="text/javascript">
+   function selectionText()
+   {
+       var text = "";
+       if (window.getSelection)
+       {
+           text = window.getSelection().toString();
+       }
+
+       return text;
+   }
+
+   function boldSelected()
+   {
+       var textBox = document.getElementById("textbox");
+       var text = textbox.innerHTML;
+       var boldFont = document.selection();
+       var offset1 = text.indexOf(boldFont);
+       var offset2 = offset1 + boldfont.length;
+       var str1 = text.substring(0, offset1);
+       var str2 = text.substring(offset2, length.text);
+       textbox.innerHTML = str1 + "<b>" + boldFont + "</b>" + str2;
+   }
+
+   function undoBold() 
+   {
+        if(getElementsByTagName("textbox").innerHTML == "<b></b>")
+            getElementsByTagName("textbox").innerHTML == "";
+   }
+
+</script>
+
+    
 <script>
     $('textarea').autoResize();
 </script>
