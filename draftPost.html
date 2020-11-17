@@ -5,14 +5,21 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Create Post</title>
     <link rel="stylesheet" href="feedStyles.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <script src="modernizr-1.5.js"></script>
-    <script src="jquery-3.5.1.js"></script>
-    <script src="autoresize.jquery.js"></script>
 </head>
+
+<style>
+
+</style>
+
 <body>
-    <header id="title">
-        <h1>What's on your mind?</h1>
-    </header>
+
+    
+        
+<!--I'm adding in the img container so that it serves as the icon in the menu. I also made
+sure that clicking the logo and home page link goes directly to the profile page rather than 
+the login page, because it doesn't make any sense to have the home page be the login page. -->
 
     <nav id="menu">
         <div class="exit">
@@ -39,57 +46,35 @@
 
     <div id="windowAdjust">
         <section id="mainSection">
-            <article>
-        <form>
-           <!-- <label for="post">What's on your mind?</label><br>-->
-            <div id="textbox">
-                 <button onclick="boldSelected()">Bold</button>
-                 <textarea placeholder="What's on your mind?" id="draft" name="draft" rows="4" cols="50"></textarea><br>
-                 Add a photo<br>
+        <article>
+            <!--<form action="upload.php" method="post" enctype="multitype/form-data">-->
+                <lable for="title">Title of Post</lable>
+                <input type="text" id="title">
+                <!-- <label for="post">What's on your mind?</label><br>-->
+<!-- Create the editor container -->
+                <div id="editor">
+                    <p>Hello World!</p>
+                    <p>Some initial <strong>bold</strong> text</p>
+                    <p><br></p>
                 </div>
-            <input type="file" name="photoToUpload" id="photoToUpload"><br><br>
-            <input type="submit" value="Post"> <br>
-            <input type="submit" value="Save Draft">
-        </form>
-    </article>
+                <input type="file" name="photoToUpload" id="photoToUpload"><br><br>
+                 <input type="submit" value="Save Draft">
+                 <input type="submit" value="Post"> <br><br>
+             <!--</form>-->
+        </article>
     </section>
 </div>
 </body>
 
-    <script type="text/javascript">
-   function selectionText()
-   {
-       var text = "";
-       if (window.getSelection)
-       {
-           text = window.getSelection().toString();
-       }
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
-       return text;
-   }
-
-   function boldSelected()
-   {
-       var textBox = document.getElementById("textbox");
-       var text = textbox.innerHTML;
-       var boldFont = selectionText();
-       var offset1 = text.indexOf(boldFont);
-       var offset2 = offset1 + boldfont.length;
-       var str1 = text.substring(0, offset1);
-       var str2 = text.substring(offset2, length.text);
-       textbox.innerHTML = str1 + "<b>" + boldFont + "</b>" + str2;
-   }
-
-   function undoBold() 
-   {
-        if(getElementsByTagName("textbox").innerHTML == "<b></b>")
-            getElementsByTagName("textbox").innerHTML == "";
-   }
-
-</script>
-
-    
+<!-- Initialize Quill editor -->
 <script>
-    $('textarea').autoResize();
+  var quill = new Quill('#editor', {
+    theme: 'snow'
+  });
 </script>
+
+
 </html>
