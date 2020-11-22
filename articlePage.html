@@ -27,7 +27,6 @@
 
         <ul>
             <li><a href="profilePage.html">Home</a></li>
-            <li><a href="profilePage.html">Your Profile</a></li>
             <li><a href="draftPost.html">Create Post</a></li>
             <li><a href="feedPage.html">What's Trending</a></li>
             <li><a href="generalSettings.html">Settings</a></li>
@@ -45,36 +44,52 @@
 
                 <!--Add a date here, which is the used as a placeholder. Therefore, I just used the current date. -->
                 <hgroup id="datePosted"></hgroup>
-
-                <script>
-                
-                var today = new Date();
-                var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                
-                var date = months[today.getMonth()] + ' ' + today.getDay() + ', ' + today.getFullYear();
-                
-                document.getElementById('datePosted').innerHTML = date;
-
-                </script>
             </header>
             
+            <script>
+                
+              var today = new Date();
+              var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+              
+              var date = months[today.getMonth()] + ' ' + today.getDay() + ', ' + today.getFullYear();
+              
+              document.getElementById('datePosted').innerHTML = date;
+
+              </script>
+
             <p>Text goes here.</p>
         </article>
 
+        <div>
         <article>
             <header>
                 <hgroup>
                     <h5>Comments</h5><br>
                 </hgroup>
-            </header>            
+            </header>    
 
+            <!--Div for a comment section.-->
+            <p>Here's a Comment</p>
+            
+           
+            
+            <br><br><br>
+            <h5>Add a Comment</h5><br>
         <!-- Comment Section with a Comment Post-->
-        <div id="editor">
-            <p>Join the Conversation</p>
-            <p><br></p>
-          </div>
+        
+        <form action="post_comment.php" method="post" id="commentform">
+
+          <label for="comment" class="required">Your message</label>
+          <textarea name="comment" id="comment" rows="10" tabindex="4"  required="required"></textarea>
+
+          <!-- comment_post_ID value hard-coded as 1 -->
+          <input type="hidden" name="comment_post_ID" value="1" id="comment_post_ID" />
+          <input name="submit" type="submit" value="Submit comment" />
+
+        </form>
 
         </article>
+      </div>
     </section>
 
     
@@ -130,7 +145,6 @@ window.onbeforeunload = function() {
 }
 </script>
 
-    
     <footer id="copyright">
         Copyright: Lonestar Group
     </footer>
