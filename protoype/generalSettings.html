@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="feedStyles.css">
 </head>
 <body>
-    <header id="title">
-        <h1>General settings</h1>
-    </header>
+    
 
     <nav id="menu">
         <div class="exit">
@@ -26,21 +24,22 @@
 
         <ul>
             <li><a href="profilePage.html">Home</a></li>
-            <li><a href="profilePage.html">Your Profile</a></li>
             <li><a href="draftPost.html">Create Post</a></li>
             <li><a href="feedPage.html">What's Trending</a></li>
             <li class="currentPage"><a href="generalSettings.html">Settings</a></li>
         </ul>
-
     </nav>
 
-    
     <div id="windowAdjust">
     <section id="mainSection">
     <article>
+
+        <!--This may need to be adapted to fit the profile picture on the bottom.-->
+        <!--I made sure that the photo can fit automatically as an icon regardless of how large the image is.-->
+        <p><img src="profilepicture.jpg" alt="profile_picture" style="float: right; max-width: 15%; height: auto;"><p>
     <form>      
         <label id="name">Name:   </label>
-        <input type="text" id="name" name="name"><br><br>
+        <input type="text" id="name" name="name" required><br><br>
         <label id="age">Age:     </label> 
         <input type="text" id="age" name="age"><br><br>
         <label id="bio">Bio:     </label>
@@ -56,10 +55,15 @@
         <input type="radio" id="other" name="gender" value="other">
         <label id="other">Other</label><br><br>
 
+        <!--Add profile picture: -->
+        <p>Add Profile Picture</p>
+        <input type="file" name="photoToUpload" id="photoToUpload"><br><br>
+
         <input type="submit" value="Save Changes"><br><br>
 
-        <a href="accountOptions.html">Back</a>
+        <a href="profilePage.html">Back</a>
     </form>
+
 </article>
 </section>
 </div>
