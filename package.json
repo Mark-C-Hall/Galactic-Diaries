@@ -1,0 +1,25 @@
+{
+  "name": "galactic-diaries",
+  "version": "1.0.0",
+  "description": "## Project Members",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  },
+  "scripts": {
+    "start-watch": "cd ./server && npm run dev",
+    "dev": "concurrently \"npm run start-watch\" \"cd client && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mark-C-Hall/Galactic-Diaries.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mark-C-Hall/Galactic-Diaries/issues"
+  },
+  "homepage": "https://github.com/Mark-C-Hall/Galactic-Diaries#readme"
+}
