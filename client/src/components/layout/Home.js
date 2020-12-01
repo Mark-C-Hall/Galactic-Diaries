@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Posts from "./Posts";
+import Posts from "../posts/Posts";
 
 export class Home extends Component {
   state = {
