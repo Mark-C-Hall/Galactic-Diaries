@@ -13,24 +13,27 @@ export class Header extends Component {
 
   render() {
     return (
-      <div>
-        <nav id="menu">
-          <ul>
-            <li>
-              <Link to="/home">Home</Link>
-            </li>
-            <li>
-              <Link to="/draftPost">Create Post</Link>
-            </li>
-            <li>
-              <Link to="/settings">Settings</Link>
-            </li>
-            <li>
-              <button onClick={this.logout}>Logout</button>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <header className="showcase">
+        <div className="container">
+          <nav id="menu">
+            <h1 className="logo">Galactic Diaries</h1>
+            <ul>
+              <li>
+                <Link to="/home">Home</Link>
+              </li>
+              <li>
+                <Link to="/draftPost">Create Post</Link>
+              </li>
+              <li>
+                <Link to="/settings">Settings</Link>
+              </li>
+              <li>
+                <button onClick={this.logout}>Logout</button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
     );
   }
 }

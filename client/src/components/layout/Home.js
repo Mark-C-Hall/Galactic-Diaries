@@ -16,7 +16,7 @@ export class Home extends Component {
   render() {
     console.log(this.state);
     return (
-      <div id="homefeed">
+      <div class="container">
         <Posts posts={this.state.posts} />
       </div>
     );
