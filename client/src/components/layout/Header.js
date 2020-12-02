@@ -6,7 +6,6 @@ export class Header extends Component {
   logout = (event) => {
     event.preventDefault();
     axios.get("/api/auth/logout").then((res) => {
-      console.log(res);
       window.location = "/";
     });
   };

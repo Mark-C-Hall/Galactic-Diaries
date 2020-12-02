@@ -1,58 +1,119 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Link from "@material-ui/core/Link";
+import Box from "@material-ui/core/Box";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 
-export class ChangePassword extends Component {
-  state = {
-    newPassword: "",
-    currentPassword: "",
-  };
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="https://galacticdiaries.com/">
+        Galactic Diaries
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 
-  handleSubmit = (event) => {
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: "100%",
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
+export default function Login() {
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+
+  const changeOldPassword = (event) => setOldPassword(event.target.value);
+  const changeNewPassword = (event) => setNewPassword(event.target.value);
+
+  const classes = useStyles();
+
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     const req = {
-      newPassword: this.state.newPassword,
-      currentPassword: this.state.currentPassword,
+      oldPassword,
+      newPassword,
     };
-    console.log(req);
 
     axios.put(`/api/auth/updatepassword/`, req).then((res) => {
-      console.log(res);
       window.location = "/home";
     });
   };
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Enter current Password:
-            <input
-              type="password"
-              id="current-password"
-              name="currentPassword"
-              onChange={this.handleChange}
-            ></input>
-          </label>
-          <label>
-            Enter new Password:
-            <input
-              type="password"
-              id="new-password"
-              name="newPassword"
-              onChange={this.handleChange}
-            ></input>
-          </label>
-          <button type="submit">Submit</button>
+  return (
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Change Password
+        </Typography>
+        <form className={classes.form} noValidate onSubmit={handleSubmit}>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="oldPassword"
+            label="Old Password"
+            name="oldPassword"
+            autoComplete="oldPassword"
+            autoFocus
+            onChange={changeOldPassword}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="newPassword"
+            label="New Password"
+            type="password"
+            id="password"
+            onChange={changeNewPassword}
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Change Password
+          </Button>
         </form>
       </div>
-    );
-  }
+      <Box mt={8}>
+        <Copyright />
+      </Box>
+    </Container>
+  );
 }
-
-export default ChangePassword;

@@ -71,7 +71,7 @@ export default function ForgotPassword() {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="p" variant="p">
+        <Typography component="p" variant="body1">
           Enter your email address that you used to register. We'll send you an
           email with your username and a link to reset your password.
         </Typography>
