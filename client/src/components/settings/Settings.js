@@ -78,19 +78,18 @@ export default function SignUp() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Settings
         </Typography>
         <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
-                autoComplete="fname"
-                name="name"
                 variant="outlined"
                 required
                 fullWidth
                 id="name"
                 label="Change Name"
+                name="name"
                 autoFocus
                 onChange={changeName}
               />
@@ -116,6 +115,8 @@ export default function SignUp() {
                 label="Bio"
                 type="bio"
                 id="bio"
+                multiline={true}
+                rows="3"
                 autoComplete="current-bio"
                 onChange={changeBio}
               />

@@ -35,7 +35,7 @@ router
     .post(protect, authorize('admin'), createUser);
 router
     .route('/:id')
-    .get(protect, authorize('admin'), getUser)
+    .get(protect, getUser)
     .put(protect, authorize('admin'), updateUser)
     .delete(protect, authorize('admin'), deleteUser);
 router.route('/:id/photo').put(protect, authorize('admin'), userPhotoUpload);

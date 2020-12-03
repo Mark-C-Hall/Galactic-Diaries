@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 class Posts extends Component {
   render() {
     return this.props.posts.map((post) => (
-      <PostItem key={post.id} post={post} />
+      <PostItem key={post._id} post={post} />
     ));
   }
 }

@@ -14,9 +14,8 @@ export class Home extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
-      <div class="container">
+      <div className="container">
         <Posts posts={this.state.posts} />
       </div>
     );

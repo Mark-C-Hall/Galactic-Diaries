@@ -97,6 +97,13 @@ UserSchema.virtual('posts', {
     justOne: false,
 });
 
+UserSchema.virtual('comments', {
+    ref: 'Comment',
+    localField: '_id',
+    foreignField: 'author',
+    justOne: false,
+});
+
 // Generate and hash password token
 UserSchema.methods.getResetPasswordToken = function () {
     const resetToken = crypto.randomBytes(20).toString('hex');
