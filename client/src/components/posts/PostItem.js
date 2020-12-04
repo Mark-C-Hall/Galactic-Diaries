@@ -1,5 +1,5 @@
 import React from "react";
-import Comment from "./Comment";
+// import Comment from "./Comment";
 import {
   Container,
   Typography,
@@ -30,7 +30,7 @@ export default function PostItem(post) {
   const { title, content, author } = post.post;
   const authorName = author.name;
   const authorThumbnail = `/photos/${author.photo}`;
-  const comments = post.post.comments;
+  // const comments = post.post.comments;
 
   const classes = useStyles();
 
@@ -42,6 +42,7 @@ export default function PostItem(post) {
       </Typography>
       <Grid
         container
+        item
         xs={12}
         direction="row"
         justify="flex-start"
@@ -55,9 +56,9 @@ export default function PostItem(post) {
       <Typography component="p" variant="body1" className={classes.content}>
         {content}
       </Typography>
-      {comments.map((comment) => (
+      {/* {comments.map((comment) => (
         <Comment key={comment._id} comment={comment} />
-      ))}
+      ))} */}
     </Container>
   );
 }
