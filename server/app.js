@@ -72,13 +72,22 @@ app.use(hpp());
 // Allow cross orgin resource sharing
 app.use(cors());
 
-// Set static folder
-app.use(express.static(path.join(__dirname, 'public')));
-
 // Mount Routers
 app.use('/api/users', users);
 app.use('/api/posts', posts);
 app.use('/api/auth', auth);
+
+// Set static folder
+app.use(express.static(`${__dirname}/build`));
+
+// Catchall for React
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build/index.html'), function (err) {
+        if (err) {
+            res.status(500).send(err);
+        }
+    });
+});
 
 // Error handler Middleware
 app.use(errorHandler);
