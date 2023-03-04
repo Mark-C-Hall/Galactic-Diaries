@@ -105,3 +105,6 @@ dist
 
 # ENV files
 *.env
+
+# Deployment files
+build/
