@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+    image: mongo
+    container_name: db
+    ports:
+      - "27107:27017"
+    restart: always
+  api:
+    image: galactic-diaries-server
+    container_name: api
+    ports:
+      - "8080:8080"
+    build:
+      context: server
+    env_file: .env
